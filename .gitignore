@@ -1,0 +1,14 @@
+# Ignore the Virtual Environment
+venv/
+
+# Ignore API Keys and Secrets
+.env
+
+# Ignore Local Data and Vector Databases
+data/
+db_storage/
+
+# Ignore Python System Files
+__pycache__/
+*.pyc
+.vscode/

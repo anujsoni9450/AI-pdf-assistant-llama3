@@ -1,0 +1,63 @@
+🤖 AI Assistant PDF Learner
+An ultra-fast, privacy-conscious RAG (Retrieval-Augmented Generation) application built for the 2026 AI ecosystem. This tool allows users to upload PDF documents and engage in a natural language conversation with the content using the high-speed Groq LPU inference engine.
+
+🚀 Key Features
+Near-Instant Responses: Leveraging Groq's LPU technology for sub-second inference.
+
+Local Vectorization: Uses Hugging Face all-MiniLM-L6-v2 for private, cost-free embeddings.
+
+Modular Design: Built with the 2026 standard for LangChain 0.3 modular packages.
+
+Local Persistence: Uses ChromaDB to store your document vectors directly on your machine.
+
+🏗️ System Architecture
+The application follows a decoupled RAG pipeline:
+
+Ingestion: Processes PDFs into semantic chunks and stores them in a local vector database.
+
+Retrieval: Searches for relevant document snippets based on the user's query.
+
+Generation: Constructs a context-aware prompt for the Groq Llama 3.3 model to generate an answer.
+
+🛠️ Tech Stack
+LLM: Llama 3.3-70b (via Groq API)
+
+Orchestration: LangChain 0.3 (Modular)
+
+Embeddings: Hugging Face sentence-transformers
+
+Vector DB: ChromaDB
+
+Interface: Streamlit
+
+📋 Installation & Setup
+1. Clone the Project
+Bash
+git clone https://github.com/your-username/Pdf-Answering.git
+cd Pdf-Answering
+2. Setup Virtual Environment
+Bash
+python -m venv venv
+.\venv\Scripts\activate  # Windows
+source venv/bin/activate # Mac/Linux
+3. Install Modular Dependencies
+Bash
+pip install -U langchain langchain-community langchain-groq langchain-huggingface langchain-chroma streamlit pypdf python-dotenv
+4. Configure Environment
+Create a .env file in the root directory:
+
+Plaintext
+GROQ_API_KEY=your_actual_key_here
+5. Launch the App
+Bash
+python -m streamlit run app.py
+📂 Project Structure
+src/ingestion.py: Handles PDF parsing, text splitting, and vector storage.
+
+src/retrieval.py: Manages the semantic search logic using local embeddings.
+
+src/generator.py: Connects the retriever to the Groq LLM with specialized prompts.
+
+app.py: The Streamlit frontend and application entry point.
+
+.gitignore: Prevents uploading venv/, data/, and db_storage/ to GitHub
